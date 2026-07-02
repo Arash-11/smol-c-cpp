@@ -6,6 +6,7 @@ without first calling bind(), the socket is assigned an ephemeral port.
 #include <stdio.h>
 #include <sys/socket.h>
 #include <netdb.h>
+#include <unistd.h>
 
 int main(void) {
     for (int i = 0; i < 3; i++) {
@@ -28,6 +29,8 @@ int main(void) {
         printf("host = %s\n", host);
         printf("port = %s\n", port);
         printf("\n");
+
+        close(sockfd);
     }
 
     return 0;
